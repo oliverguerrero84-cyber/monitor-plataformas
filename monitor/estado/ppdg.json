@@ -2,61 +2,61 @@
   "portada": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.85,
+    "segundos": 0.38,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "cursos": {
     "ok": true,
     "motivo": null,
-    "segundos": 7.18,
+    "segundos": 6.05,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "login": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.85,
+    "segundos": 0.41,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "perfil": {
     "ok": true,
     "motivo": null,
-    "segundos": 1.16,
+    "segundos": 0.4,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "carrito": {
     "ok": true,
     "motivo": null,
-    "segundos": 1.02,
+    "segundos": 0.41,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_basico": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.89,
+    "segundos": 0.4,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_liderturno": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.78,
+    "segundos": 0.34,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_liderservicio": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.77,
+    "segundos": 0.22,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_supervisor": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.67,
+    "segundos": 0.22,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_lideroper": {
     "ok": true,
     "motivo": null,
-    "segundos": 0.65,
+    "segundos": 0.32,
     "desde": "2026-08-27T20:21:18+00:00"
   }
 }
