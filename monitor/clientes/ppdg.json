@@ -4,7 +4,6 @@
   "umbral_lento": 5.0,
   "_nota_user_agent": "El sitio responde 406 a user-agents de script. Sin uno de navegador, TODA revisión saldría como falla.",
   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
-
   "_nota_frases": "Frases que significan 'cargó pero está rota'. Sacadas de los reportes reales del equipo. Se comparan sin acentos y en minúsculas. Esto es lo que un monitor de estante NO ve: estas páginas devuelven HTTP 200.",
   "frases_de_falla": [
     "pagina no encontrada",
@@ -16,21 +15,59 @@
     "there has been a critical error",
     "ha habido un error critico"
   ],
-
   "_nota_paginas": "Rutas tomadas del menú real del sitio, no supuestas.",
   "paginas": [
-    ["portada",             "/",                                          "Portada"],
-    ["cursos",              "/cursos/",                                   "Catálogo de cursos"],
-    ["login",               "/login/",                                    "Inicio de sesión"],
-    ["perfil",              "/lp-profile/",                               "Perfil del alumno"],
-    ["carrito",             "/carrito/",                                  "Carrito"],
-    ["curso_basico",        "/course/curso-guardia-de-seguridad-basico/", "Curso Guardia Básico"],
-    ["curso_liderturno",    "/course/lider-de-turno/",                    "Curso Líder de Turno"],
-    ["curso_liderservicio", "/course/lider-de-servicio/",                 "Curso Líder de Servicio"],
-    ["curso_supervisor",    "/course/supervisor/",                        "Curso Supervisor"],
-    ["curso_lideroper",     "/course/lider-de-operaciones/",              "Curso Líder de Operaciones"]
+    [
+      "portada",
+      "/",
+      "Portada"
+    ],
+    [
+      "cursos",
+      "/cursos/",
+      "Catálogo de cursos"
+    ],
+    [
+      "login",
+      "/login/",
+      "Inicio de sesión"
+    ],
+    [
+      "perfil",
+      "/lp-profile/",
+      "Perfil del alumno"
+    ],
+    [
+      "carrito",
+      "/carrito/",
+      "Carrito"
+    ],
+    [
+      "curso_basico",
+      "/course/curso-guardia-de-seguridad-basico/",
+      "Curso Guardia Básico"
+    ],
+    [
+      "curso_liderturno",
+      "/course/lider-de-turno/",
+      "Curso Líder de Turno"
+    ],
+    [
+      "curso_liderservicio",
+      "/course/lider-de-servicio/",
+      "Curso Líder de Servicio"
+    ],
+    [
+      "curso_supervisor",
+      "/course/supervisor/",
+      "Curso Supervisor"
+    ],
+    [
+      "curso_lideroper",
+      "/course/lider-de-operaciones/",
+      "Curso Líder de Operaciones"
+    ]
   ],
-
   "_nota_alerta": "Piezas creadas en la subcuenta por builders/ppdg_monitoreo_alerta.py. No son credenciales — son identificadores. La credencial (GHL_API_KEY) va SIEMPRE en un secreto, nunca aquí.",
   "alerta": {
     "location_id": "WM1hqb4GuFIegLM13yHd",
