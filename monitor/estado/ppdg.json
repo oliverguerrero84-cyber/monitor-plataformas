@@ -1,0 +1,62 @@
+{
+  "portada": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.63,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "cursos": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 6.45,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "login": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.42,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "perfil": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.7,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "carrito": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.69,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "curso_basico": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.64,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "curso_liderturno": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.76,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "curso_liderservicio": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.76,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "curso_supervisor": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.64,
+    "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "curso_lideroper": {
+    "ok": true,
+    "motivo": null,
+    "segundos": 0.7,
+    "desde": "2026-08-27T20:21:18+00:00"
+  }
+}

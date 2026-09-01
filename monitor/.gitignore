@@ -1,0 +1,6 @@
+__pycache__/
+
+# estado/ NO va aquí a propósito: cada corrida de GitHub Actions arranca en un
+# contenedor nuevo, así que el estado tiene que quedar commiteado para que la
+# siguiente sepa cómo estaba todo antes. Sin eso el monitor alertaría en bucle
+# y nunca detectaría las recuperaciones.
