@@ -71,6 +71,23 @@ LG_PAGINAS = LG.get("paginas", 3)           # cuántas hacen falta para avisar
 LG_CONFIRMACIONES = LG.get("confirmaciones", 2)   # revisiones seguidas
 LG_CALMA = LG.get("calma_minutos", 20) * 60       # para darlo por normalizado
 
+# ------------------------------------------------------------ prueba viva
+# El canal de avisos puede morirse sin decirlo: el proveedor de WhatsApp pierde
+# la sesión, el workflow se sigue ejecutando, se marca como exitoso y no llega
+# nada a nadie. Un monitoreo así se apaga solo y uno se entera el día que de
+# verdad hace falta.
+#
+# Contra eso, un latido: cada tanto se manda un aviso de prueba. Si llega, el
+# canal está vivo; si un día no llega, eso mismo es la señal, y llega en un
+# momento sin consecuencias en vez de en plena caída.
+#
+# Va DENTRO del bucle de vigilancia, no como corrida programada aparte: GitHub
+# descarta los disparos programados (medido: 2 de 30), así que una prueba
+# semanal por cron sería justo la que más probabilidad tiene de no ocurrir nunca.
+PV = CFG.get("prueba_viva", {})
+PV_DIAS = PV.get("cada_dias", 7)
+PV_HORA = tuple(PV.get("horario_mx", [9, 18]))   # solo cuando alguien puede reaccionar
+
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ESTADO = os.path.join(AQUI, "estado", f"{CLIENTE}.json")
 HISTORIAL = os.path.join(AQUI, "estado", f"{CLIENTE}-historial.jsonl")
@@ -219,6 +236,19 @@ def segundos_desde(iso):
     except Exception:
         return 0
     return (datetime.datetime.now(datetime.timezone.utc) - t0).total_seconds()
+
+
+def toca_prueba_viva(antes, ahora):
+    """¿Toca el latido semanal? Solo en días y horas hábiles.
+
+    Un aviso de prueba a las 3 de la mañana o un domingo no lo ve nadie, y el
+    valor de esto es justamente que alguien note su ausencia.
+    """
+    local = ahora - datetime.timedelta(hours=6)
+    if local.weekday() > 4 or not (PV_HORA[0] <= local.hour < PV_HORA[1]):
+        return False
+    ultima = antes.get("ultima")
+    return (not ultima) or segundos_desde(ultima) >= PV_DIAS * 86400
 
 
 def evaluar_lentitud(antes, graves, sello):
@@ -385,6 +415,29 @@ def main():
                 "detalle": texto})
     else:
         print("\nsin cambios respecto a la revisión anterior — no se avisa")
+
+    # ---------- latido semanal
+    # Solo cuando no hubo aviso real: los dos usan la misma etiqueta, y [MON-1]
+    # necesita quitarla antes de poder dispararse otra vez. Encimarlos perdería
+    # uno de los dos, y el que importa es el de verdad.
+    prueba_antes = estado.get("_prueba", {})
+    nuevo["_prueba"] = prueba_antes
+    if not partes and toca_prueba_viva(prueba_antes, ahora):
+        texto = (f"🔧 Prueba semanal del monitoreo de {CFG['nombre']} ({hora_mx} hrs)\n\n"
+                 "Este mensaje se manda solo, una vez por semana, para comprobar que "
+                 "el canal de avisos sigue vivo. Si lo estás leyendo, todo bien: no hay "
+                 "ninguna falla y no hay nada que hacer.\n\n"
+                 "Lo importante es al revés: si pasa una semana y NO llega, quiere decir "
+                 "que la conexión de WhatsApp se cayó y que una alerta real tampoco "
+                 "llegaría. Ahí sí hay que revisarla.")
+        print("\n--- latido semanal ---")
+        enviado = avisar(texto)
+        print("--- latido", "enviado" if enviado else "NO enviado", "---")
+        # Solo se reagenda si SALIÓ. Si falló, se reintenta en la siguiente
+        # revisión en vez de esperarse otra semana.
+        if enviado:
+            nuevo["_prueba"] = {"ultima": sello}
+            anotar({"cuando": sello, "tipo": "prueba_viva", "avisado": True})
 
     if lentas:
         print("\nlentas (no generan aviso):")

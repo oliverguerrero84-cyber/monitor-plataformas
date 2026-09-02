@@ -9,6 +9,11 @@
     "confirmaciones": 2,
     "calma_minutos": 20
   },
+  "_nota_prueba_viva": "Latido: cada cuánto se manda un aviso de prueba para comprobar que el canal sigue vivo. GoGHL pierde la sesión de WhatsApp cada tanto y falla en silencio — el workflow se ejecuta, se marca exitoso y no llega nada. El horario es en hora de México y solo días hábiles: el valor de esto es que alguien note su AUSENCIA, y un mensaje de domingo a las 3am no lo nota nadie.",
+  "prueba_viva": {
+    "cada_dias": 7,
+    "horario_mx": [9, 18]
+  },
   "_nota_user_agent": "El sitio responde 406 a user-agents de script. Sin uno de navegador, TODA revisión saldría como falla.",
   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
   "_nota_frases": "Frases que significan 'cargó pero está rota'. Sacadas de los reportes reales del equipo. Se comparan sin acentos y en minúsculas. Esto es lo que un monitor de estante NO ve: estas páginas devuelven HTTP 200.",
