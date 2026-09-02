@@ -26,9 +26,24 @@ rota", tomadas de los reportes reales del equipo del cliente.
 ```bash
 python3 monitor/auditar.py --cliente ppdg --pasadas 4     # reporte
 python3 monitor/vigilar.py --cliente ppdg --sin-avisar    # revisar sin avisar
-python3 monitor/vigilar.py --cliente ppdg --probar        # alerta de prueba
+python3 monitor/vigilar.py --cliente ppdg --probar        # un aviso suelto de prueba
+python3 monitor/vigilar.py --cliente ppdg --simulacro     # ensayo del ciclo completo
 python3 monitor/vigilar.py --cliente ppdg                 # revisión real
 ```
+
+Lo mismo se corre desde la web sin tocar la terminal: **Actions → Monitoreo
+plataforma PPDG → Run workflow**, y ahí se elige el modo.
+
+| Modo | Qué hace | Cuánto tarda |
+|---|---|---|
+| `revision` | Vigilancia normal | media hora |
+| `prueba` | Manda un aviso de prueba y termina | segundos |
+| `simulacro` | Ensaya el ciclo entero: avisa una caída y, tres minutos después, la recuperación con su duración | ~4 minutos |
+
+El simulacro pide una dirección que no existe en el sitio. Es una visita más,
+como la de cualquiera que teclea mal una URL: no escribe nada ni afecta la
+plataforma. Los dos mensajes van marcados como simulacro para que quien los
+reciba no crea que se cayó algo.
 
 ## Cómo avisa
 

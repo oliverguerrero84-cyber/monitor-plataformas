@@ -1,26 +1,43 @@
 name: Monitoreo plataforma PPDG
 
-# Cada 10 minutos. En repos públicos GitHub Actions es gratis e ilimitado, así
-# que la cadencia la marca lo que se quiere medir, no el presupuesto: las caídas
-# reportadas duraron de 30 minutos a más de una hora, y a 10 minutos ninguna se
-# escapa y la duración queda medida fino. GitHub no garantiza puntualidad en los
-# cron —bajo carga se retrasa unos minutos— y para este caso da igual.
+# Por qué NO es un cron cada 10 minutos
+# -------------------------------------
+# Lo era, y GitHub lo ignoraba: de un cron `*/10` llegaron 2 corridas en 5 horas.
+# Las corridas programadas se descartan en silencio cuando el intervalo es corto
+# y el repositorio tiene poca actividad — no hay error, simplemente no ocurren.
+# Un monitor que revisa cada dos horas no detecta caídas de treinta minutos.
+#
+# El arreglo: pedirle a GitHub pocos arranques, y que cada arranque vigile un
+# buen rato. Se dispara dos veces por hora y cada corrida revisa cada 4 minutos
+# durante media hora. Si GitHub se salta un arranque, el siguiente tapa el hueco.
+# Los minutos 7 y 37 son a propósito: en :00 y :30 se amontona medio GitHub.
 on:
   schedule:
-    - cron: "*/10 * * * *"
-  workflow_dispatch:          # para poder dispararlo a mano desde la web
+    - cron: "7,37 * * * *"
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "Qué hacer en esta corrida"
+        type: choice
+        default: revision
+        options:
+          - revision     # vigilancia normal, media hora
+          - prueba       # manda un aviso de prueba y termina
+          - simulacro    # ensaya el ciclo completo: caída y recuperación
 
-# Necesario para que el paso final pueda guardar el estado y el historial.
 permissions:
   contents: write
 
 concurrency:
   group: monitor-academia
-  cancel-in-progress: false   # que una corrida no mate a la anterior a media revisión
+  # Si un arranque se retrasa y alcanza al anterior, que mande el nuevo. Los
+  # avisos ya salieron durante la corrida vieja; no se pierde nada al cortarla.
+  cancel-in-progress: true
 
 jobs:
   revisar:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
 
@@ -30,31 +47,55 @@ jobs:
 
       - run: pip install --quiet requests
 
-      - name: Revisar el sitio
-        id: revision
+      - name: Aviso de prueba
+        if: github.event.inputs.modo == 'prueba'
         env:
           GHL_API_KEY: ${{ secrets.GHL_API_KEY }}
-        # `continue-on-error` para que el guardado de abajo SIEMPRE corra: si el
-        # script sale con error por una caída, igual queremos conservar el estado.
-        continue-on-error: true
-        run: python3 monitor/vigilar.py --cliente ppdg
+        run: python3 monitor/vigilar.py --cliente ppdg --probar
 
-      - name: Guardar estado e historial
+      - name: Simulacro de caída y recuperación
+        if: github.event.inputs.modo == 'simulacro'
+        env:
+          GHL_API_KEY: ${{ secrets.GHL_API_KEY }}
+        run: python3 monitor/vigilar.py --cliente ppdg --simulacro
+
+      - name: Vigilar media hora
+        if: github.event_name == 'schedule' || github.event.inputs.modo == 'revision'
+        env:
+          GHL_API_KEY: ${{ secrets.GHL_API_KEY }}
         run: |
+          set -u
           git config user.name  "monitoreo-ppdg"
           git config user.email "monitoreo@users.noreply.github.com"
-          git add monitor/estado/ 2>/dev/null || true
-          git diff --staged --quiet || git commit -m "monitoreo: $(date -u '+%Y-%m-%d %H:%M UTC')"
-          # La rama avanza sola entre corridas; si otra corrida ya empujó, se rebasa.
-          git pull --rebase --autostash origin ${{ github.ref_name }} || true
-          git push origin HEAD:${{ github.ref_name }} || true
+          fin=$(( $(date +%s) + 28*60 ))
+          hubo_caida=0
 
-      # Hasta aquí ya se avisó por WhatsApp y correo desde el CRM. Este paso hace
-      # fallar la corrida a propósito para que GitHub mande SU propio correo:
-      # es un segundo canal, independiente del CRM y de GoGHL. Si esa vía se cae,
-      # este aviso llega igual.
-      - name: Marcar la corrida como fallida si hubo caída
-        if: steps.revision.outcome == 'failure'
-        run: |
-          echo "Se detectó al menos una página caída. Ver el paso 'Revisar el sitio'."
-          exit 1
+          while : ; do
+            # El script sale con error cuando detecta una caída. Se anota y se
+            # sigue vigilando: lo que hace falta después de una caída es el aviso
+            # de que se restableció, y ese solo llega si el bucle continúa.
+            python3 monitor/vigilar.py --cliente ppdg || hubo_caida=1
+
+            # El estado solo cambia cuando cambia la situación, así que un commit
+            # aquí significa siempre algo real: una caída o una recuperación.
+            # Se guarda en el momento, no al final: si la corrida se corta a la
+            # mitad, la siguiente tiene que saber que la plataforma estaba caída.
+            git add monitor/estado/ 2>/dev/null || true
+            if ! git diff --staged --quiet ; then
+              git commit -q -m "monitoreo: $(date -u '+%Y-%m-%d %H:%M UTC')"
+              git pull -q --rebase --autostash origin ${{ github.ref_name }} || true
+              git push -q origin HEAD:${{ github.ref_name }} || true
+            fi
+
+            [ "$(date +%s)" -ge "$fin" ] && break
+            sleep 240
+          done
+
+          # Marcar la corrida como fallida hace que GitHub mande SU propio correo.
+          # Es el canal de respaldo, independiente del CRM y de GoGHL: si esa vía
+          # falla, este aviso llega igual. Sale al final para no cortar la
+          # vigilancia — el aviso inmediato ya salió por WhatsApp y correo.
+          if [ "$hubo_caida" = "1" ]; then
+            echo "::error::Se detectó al menos una página caída durante esta corrida."
+            exit 1
+          fi
