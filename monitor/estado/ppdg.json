@@ -2,7 +2,7 @@
   "portada": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "cursos": {
@@ -20,13 +20,13 @@
   "perfil": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "carrito": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_basico": {
