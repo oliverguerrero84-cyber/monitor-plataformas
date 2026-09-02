@@ -32,13 +32,13 @@
   "curso_basico": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_liderturno": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_liderservicio": {
@@ -50,13 +50,13 @@
   "curso_supervisor": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_lideroper": {
     "ok": true,
     "motivo": null,
-    "lenta": false,
+    "lenta": true,
     "desde": "2026-08-27T20:21:18+00:00"
   }
 }
