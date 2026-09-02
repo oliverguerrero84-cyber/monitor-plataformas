@@ -36,7 +36,7 @@ plataforma PPDG → Run workflow**, y ahí se elige el modo.
 
 | Modo | Qué hace | Cuánto tarda |
 |---|---|---|
-| `revision` | Vigilancia normal | media hora |
+| `revision` | Vigilancia normal | casi 6 horas |
 | `prueba` | Manda un aviso de prueba y termina | segundos |
 | `simulacro` | Ensaya el ciclo entero: avisa una caída y, tres minutos después, la recuperación con su duración | ~4 minutos |
 

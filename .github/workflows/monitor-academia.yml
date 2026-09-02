@@ -1,16 +1,21 @@
 name: Monitoreo plataforma PPDG
 
-# Por qué NO es un cron cada 10 minutos
-# -------------------------------------
-# Lo era, y GitHub lo ignoraba: de un cron `*/10` llegaron 2 corridas en 5 horas.
-# Las corridas programadas se descartan en silencio cuando el intervalo es corto
-# y el repositorio tiene poca actividad — no hay error, simplemente no ocurren.
-# Un monitor que revisa cada dos horas no detecta caídas de treinta minutos.
+# Por qué una corrida larga y no un cron seguido
+# ----------------------------------------------
+# El cron de GitHub aquí no es de fiar, y está medido: con `*/10` llegaron 2 de
+# 30 corridas en 5 horas, y al bajarlo a dos por hora el arranque de las 00:37
+# tampoco ocurrió. No hay error ni aviso — los disparos programados en repos con
+# poca actividad se descartan en silencio. En la práctica cae uno cada dos o tres
+# horas, a capricho.
 #
-# El arreglo: pedirle a GitHub pocos arranques, y que cada arranque vigile un
-# buen rato. Se dispara dos veces por hora y cada corrida revisa cada 4 minutos
-# durante media hora. Si GitHub se salta un arranque, el siguiente tapa el hueco.
-# Los minutos 7 y 37 son a propósito: en :00 y :30 se amontona medio GitHub.
+# Así que no se pelea contra eso: se asume. En vez de pedir muchos arranques
+# —que es justo lo que GitHub castiga—, cada arranque vigila casi seis horas
+# revisando cada 4 minutos. Con que caiga UN disparo en toda la mañana, la
+# vigilancia queda continua. Se piden dos por hora nada más para tener muchas
+# oportunidades de que alguno entre; los minutos 7 y 37 son a propósito, porque
+# en :00 y :30 se amontona medio GitHub.
+#
+# El límite de GitHub para un job son 6 horas, de ahí el 5h40 del bucle.
 on:
   schedule:
     - cron: "7,37 * * * *"
@@ -21,7 +26,7 @@ on:
         type: choice
         default: revision
         options:
-          - revision     # vigilancia normal, media hora
+          - revision     # vigilancia normal, casi seis horas
           - prueba       # manda un aviso de prueba y termina
           - simulacro    # ensaya el ciclo completo: caída y recuperación
 
@@ -37,7 +42,7 @@ concurrency:
 jobs:
   revisar:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v5
 
@@ -59,7 +64,7 @@ jobs:
           GHL_API_KEY: ${{ secrets.GHL_API_KEY }}
         run: python3 monitor/vigilar.py --cliente ppdg --simulacro
 
-      - name: Vigilar media hora
+      - name: Vigilar
         if: github.event_name == 'schedule' || github.event.inputs.modo == 'revision'
         env:
           GHL_API_KEY: ${{ secrets.GHL_API_KEY }}
@@ -67,7 +72,7 @@ jobs:
           set -u
           git config user.name  "monitoreo-ppdg"
           git config user.email "monitoreo@users.noreply.github.com"
-          fin=$(( $(date +%s) + 28*60 ))
+          fin=$(( $(date +%s) + 340*60 ))
           hubo_caida=0
 
           while : ; do
@@ -91,10 +96,14 @@ jobs:
             sleep 240
           done
 
-          # Marcar la corrida como fallida hace que GitHub mande SU propio correo.
-          # Es el canal de respaldo, independiente del CRM y de GoGHL: si esa vía
-          # falla, este aviso llega igual. Sale al final para no cortar la
-          # vigilancia — el aviso inmediato ya salió por WhatsApp y correo.
+          # Marcar la corrida como fallida hace que GitHub mande SU propio correo,
+          # por un canal independiente del CRM y de GoGHL.
+          #
+          # Con corridas de seis horas ese correo dejó de ser inmediato: llega
+          # cuando termina la corrida, no cuando pasa la falla, y no llega del
+          # todo si un disparo nuevo corta esta corrida antes. Vale como rastro
+          # de respaldo, no como alerta. La alerta de verdad es la que ya salió
+          # por WhatsApp y correo desde el CRM en el momento de la caída.
           if [ "$hubo_caida" = "1" ]; then
             echo "::error::Se detectó al menos una página caída durante esta corrida."
             exit 1
