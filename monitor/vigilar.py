@@ -61,6 +61,7 @@ os.makedirs(os.path.dirname(ESTADO), exist_ok=True)
 SIN_AVISAR = "--sin-avisar" in sys.argv
 PROBAR = "--probar" in sys.argv
 SIMULACRO = "--simulacro" in sys.argv
+ARRANQUE = "--arranque" in sys.argv
 REINTENTOS = 2
 
 # Ruta inexistente a propósito, para el simulacro. Pedirla es una visita más al
@@ -210,6 +211,16 @@ def main():
 
     if SIMULACRO:
         return simulacro()
+
+    if ARRANQUE:
+        # Deja constancia de cuándo empezó a vigilar esta corrida. Sin esto un
+        # hueco de cobertura es invisible: el historial solo guarda incidentes,
+        # así que "no hubo avisos" se lee igual que "nadie estaba mirando". Con
+        # la marca de arranque se puede ver si la vigilancia fue continua, que es
+        # justo lo que hay que poder responder cuando el cliente pregunte.
+        anotar({"cuando": sello, "tipo": "arranque"})
+        print(f"arranque anotado: {sello}")
+        return
 
     estado = cargar_estado()
     nuevo, caidas, recuperadas, lentas, cambios_lentitud = {}, [], [], [], []

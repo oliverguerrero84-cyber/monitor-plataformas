@@ -75,6 +75,11 @@ jobs:
           fin=$(( $(date +%s) + 340*60 ))
           hubo_caida=0
 
+          # Marca de arranque. El disparo de GitHub es irregular, así que la
+          # única forma de saber si la vigilancia fue continua es dejar rastro de
+          # cuándo empezó cada corrida.
+          python3 monitor/vigilar.py --cliente ppdg --arranque
+
           while : ; do
             # El script sale con error cuando detecta una caída. Se anota y se
             # sigue vigilando: lo que hace falta después de una caída es el aviso
