@@ -58,5 +58,12 @@
     "motivo": null,
     "lenta": false,
     "desde": "2026-08-27T20:21:18+00:00"
+  },
+  "_lentitud": {
+    "degradado": false,
+    "seguidas": 0,
+    "primera": null,
+    "desde": null,
+    "calma_desde": null
   }
 }

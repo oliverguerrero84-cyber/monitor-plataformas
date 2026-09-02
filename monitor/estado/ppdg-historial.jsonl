@@ -36,3 +36,4 @@
 {"cuando": "2026-09-02T16:05:04+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 6.26, "lenta": true}, {"pagina": "Curso Guardia Básico", "segundos": 3.37, "lenta": false}, {"pagina": "Curso Líder de Turno", "segundos": 0.57, "lenta": false}]}
 {"cuando": "2026-09-02T16:09:34+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 2.68, "lenta": false}]}
 {"cuando": "2026-09-02T17:52:52+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-02T19:12:34+00:00", "tipo": "arranque"}
