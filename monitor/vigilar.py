@@ -53,6 +53,24 @@ PAGINAS = CFG["paginas"]
 UMBRAL_LENTO = CFG["umbral_lento"]
 AL = CFG["alerta"]
 
+# ---------------------------------------------------------------- lentitud
+# Dos niveles distintos, a propósito:
+#
+#   `umbral_lento` (5 s)  →  se anota en el historial, no despierta a nadie.
+#   `lentitud_grave`      →  sí avisa: la plataforma está inservible aunque
+#                            técnicamente responda.
+#
+# Los números salen de lo medido en el sitio, no de un supuesto: de madrugada
+# las páginas cargan en 0.2–0.5 s, el catálogo vive crónicamente en ~6 s, y en
+# los episodios reales varias páginas se van juntas a 15–56 s. De ahí que el
+# aviso pida VARIAS páginas por arriba de 15 s: una sola página lenta es ruido,
+# media plataforma en 20 segundos es un problema que el alumno está sufriendo.
+LG = CFG.get("lentitud_grave", {})
+LG_SEGUNDOS = LG.get("segundos", 15.0)      # a partir de aquí una página cuenta
+LG_PAGINAS = LG.get("paginas", 3)           # cuántas hacen falta para avisar
+LG_CONFIRMACIONES = LG.get("confirmaciones", 2)   # revisiones seguidas
+LG_CALMA = LG.get("calma_minutos", 20) * 60       # para darlo por normalizado
+
 AQUI = os.path.dirname(os.path.abspath(__file__))
 ESTADO = os.path.join(AQUI, "estado", f"{CLIENTE}.json")
 HISTORIAL = os.path.join(AQUI, "estado", f"{CLIENTE}-historial.jsonl")
@@ -195,6 +213,61 @@ def simulacro():
         sys.exit(1)
 
 
+def segundos_desde(iso):
+    try:
+        t0 = datetime.datetime.fromisoformat(iso)
+    except Exception:
+        return 0
+    return (datetime.datetime.now(datetime.timezone.utc) - t0).total_seconds()
+
+
+def evaluar_lentitud(antes, graves, sello):
+    """Decide si la plataforma entra o sale de "lentitud generalizada".
+
+    Entrar y salir no cuestan lo mismo, y es a propósito. Este sitio va y viene:
+    se ahoga unos minutos, se recupera, se vuelve a ahogar. Si el aviso siguiera
+    ese vaivén al pie de la letra, una mañana mala serían seis mensajes al
+    WhatsApp del equipo y a la tercera nadie los leería.
+
+      entrar → varias páginas graves en DOS revisiones seguidas (~8 min).
+               Un pico suelto no despierta a nadie.
+      salir  → VEINTE MINUTOS sin una sola página grave. Así un bache que
+               reaparece a los cinco minutos sigue siendo el mismo incidente,
+               y la duración que se reporta es la del episodio completo.
+
+    Devuelve (estado_nuevo, empezo, termino): `empezo` trae las páginas graves
+    cuando hay que avisar, `termino` el sello del inicio para medir la duración.
+    """
+    hay = len(graves) >= LG_PAGINAS
+    degradado = antes.get("degradado", False)
+    seguidas = antes.get("seguidas", 0)
+    primera = antes.get("primera")
+    desde = antes.get("desde")
+    calma_desde = antes.get("calma_desde")
+    empezo, termino = None, None
+
+    if not degradado:
+        if hay:
+            seguidas += 1
+            primera = primera or sello
+            if seguidas >= LG_CONFIRMACIONES:
+                degradado, desde, empezo = True, primera, list(graves)
+                seguidas, primera, calma_desde = 0, None, None
+        else:
+            seguidas, primera = 0, None
+    else:
+        if graves:
+            calma_desde = None           # cualquier página grave rompe la calma
+        else:
+            calma_desde = calma_desde or sello
+            if segundos_desde(calma_desde) >= LG_CALMA:
+                degradado, termino = False, desde
+                desde, calma_desde = None, None
+
+    return ({"degradado": degradado, "seguidas": seguidas, "primera": primera,
+             "desde": desde, "calma_desde": calma_desde}, empezo, termino)
+
+
 def main():
     ahora = datetime.datetime.now(datetime.timezone.utc)
     sello = ahora.isoformat(timespec="seconds")
@@ -223,7 +296,7 @@ def main():
         return
 
     estado = cargar_estado()
-    nuevo, caidas, recuperadas, lentas, cambios_lentitud = {}, [], [], [], []
+    nuevo, caidas, recuperadas, lentas, cambios_lentitud, graves = {}, [], [], [], [], []
 
     print(f"Revisión {sello}\n")
     for clave, ruta, nombre in PAGINAS:
@@ -253,6 +326,15 @@ def main():
             lentas.append((nombre, r["segundos"]))
         if es_lenta != era_lenta:
             cambios_lentitud.append((nombre, r["segundos"], es_lenta))
+        # Una página caída no cuenta como lenta: ya se avisa por otro lado, y si
+        # tardó 45 segundos fue porque se estaba muriendo, no porque vaya lenta.
+        if r["ok"] and r["segundos"] and r["segundos"] > LG_SEGUNDOS:
+            graves.append((nombre, r["segundos"]))
+
+    lento_antes = estado.get("_lentitud", {})
+    lento_ahora, empezo_lentitud, termino_lentitud = evaluar_lentitud(
+        lento_antes, graves, sello)
+    nuevo["_lentitud"] = lento_ahora
 
     # ---------- avisar solo si cambió algo
     partes = []
@@ -269,6 +351,25 @@ def main():
         for nombre, desde in recuperadas:
             partes.append(f"• {nombre} ya responde bien. Estuvo fallando {duracion(desde)}.")
 
+    if empezo_lentitud:
+        if partes:
+            partes.append("")
+        partes.append(f"🐢 {CFG['nombre']} — la plataforma está muy lenta ({hora_mx} hrs)\n")
+        # Solo las cinco peores: el mensaje va a WhatsApp y una lista de diez
+        # líneas se deja de leer a la tercera.
+        for nombre, seg in sorted(empezo_lentitud, key=lambda x: -x[1])[:5]:
+            partes.append(f"• {nombre}: {seg:.0f} segundos en cargar")
+        if len(empezo_lentitud) > 5:
+            partes.append(f"• …y {len(empezo_lentitud) - 5} página(s) más")
+        partes.append("\nLas páginas sí cargan, pero tan lento que para un alumno "
+                      "es como si no funcionaran. Se avisa cuando se normalice.")
+    if termino_lentitud:
+        if partes:
+            partes.append("")
+        partes.append(f"✅ {CFG['nombre']} — la plataforma ya carga con normalidad "
+                      f"({hora_mx} hrs)\n")
+        partes.append(f"• La lentitud duró {duracion(termino_lentitud)}.")
+
     if partes:
         texto = "\n".join(partes)
         print("\n--- aviso ---")
@@ -277,7 +378,11 @@ def main():
         print("--- aviso", "enviado" if enviado else "NO enviado", "---")
         anotar({"cuando": sello, "avisado": enviado,
                 "caidas": [n for n, _ in caidas],
-                "recuperadas": [n for n, _ in recuperadas], "detalle": texto})
+                "recuperadas": [n for n, _ in recuperadas],
+                "lentitud_grave": [{"pagina": n, "segundos": s}
+                                   for n, s in (empezo_lentitud or [])],
+                "fin_lentitud_grave": bool(termino_lentitud),
+                "detalle": texto})
     else:
         print("\nsin cambios respecto a la revisión anterior — no se avisa")
 

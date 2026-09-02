@@ -45,6 +45,27 @@ como la de cualquiera que teclea mal una URL: no escribe nada ni afecta la
 plataforma. Los dos mensajes van marcados como simulacro para que quien los
 reciba no crea que se cayó algo.
 
+## Qué genera un aviso
+
+Dos cosas distintas, con dos varas distintas:
+
+| | Cuándo | Qué se manda |
+|---|---|---|
+| **Caída** | Una página no responde, responde mal, o carga diciendo "Página no encontrada" | ⚠️ al detectarla, ✅ al restablecerse con su duración |
+| **Lentitud grave** | 3 o más páginas por arriba de 15 s, en 2 revisiones seguidas | 🐢 al empezar, ✅ al normalizarse con su duración |
+
+La lentitud tiene dos niveles a propósito. Por arriba de `umbral_lento` (5 s) se
+anota en el historial y ya; por arriba de `lentitud_grave` se avisa al equipo.
+Los números salen de lo medido: de madrugada el sitio responde en 0.2–0.5 s y el
+catálogo vive crónicamente en ~6 s, pero en los episodios reales varias páginas
+se van juntas a 15–56 s. Una página lenta es un dato; media plataforma en veinte
+segundos es un problema que el alumno está sufriendo.
+
+Entrar y salir del aviso no cuestan lo mismo, y es deliberado: entrar pide 2
+revisiones seguidas, salir pide 20 minutos sin ninguna página grave. Este sitio
+se ahoga y se recupera varias veces seguidas; sin esa histéresis, una mañana
+mala serían seis mensajes al WhatsApp del equipo y a la tercera nadie los leería.
+
 ## Cómo avisa
 
 El monitor **no manda mensajes**. Escribe el texto en un campo del contacto de

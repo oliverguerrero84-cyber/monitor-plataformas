@@ -2,6 +2,13 @@
   "nombre": "PPDG",
   "base": "https://ppdg.com.mx",
   "umbral_lento": 5.0,
+  "_nota_lentitud_grave": "Cuándo la lentitud deja de ser un dato del historial y pasa a ser un aviso al equipo. Los números salen de lo medido en este sitio, no de un supuesto: de madrugada las páginas cargan en 0.2-0.5s y el catálogo vive crónicamente en ~6s, pero en los episodios del 2 de septiembre varias se fueron juntas a 15-56s. Pedir VARIAS por arriba de 15s separa el problema real del catálogo lento de siempre.",
+  "lentitud_grave": {
+    "segundos": 15.0,
+    "paginas": 3,
+    "confirmaciones": 2,
+    "calma_minutos": 20
+  },
   "_nota_user_agent": "El sitio responde 406 a user-agents de script. Sin uno de navegador, TODA revisión saldría como falla.",
   "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
   "_nota_frases": "Frases que significan 'cargó pero está rota'. Sacadas de los reportes reales del equipo. Se comparan sin acentos y en minúsculas. Esto es lo que un monitor de estante NO ve: estas páginas devuelven HTTP 200.",
