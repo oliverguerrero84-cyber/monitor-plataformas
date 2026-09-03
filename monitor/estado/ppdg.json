@@ -38,7 +38,7 @@
   "curso_liderturno": {
     "ok": true,
     "motivo": null,
-    "lenta": true,
+    "lenta": false,
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "curso_liderservicio": {
