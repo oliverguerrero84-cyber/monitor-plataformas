@@ -60,3 +60,4 @@
 {"cuando": "2026-09-04T01:25:24+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Servicio", "segundos": 1.91, "lenta": false}]}
 {"cuando": "2026-09-04T01:51:12+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 6.61, "lenta": true}]}
 {"cuando": "2026-09-04T01:55:36+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 0.71, "lenta": false}]}
+{"cuando": "2026-09-04T02:17:35+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 5.3, "lenta": true}]}
