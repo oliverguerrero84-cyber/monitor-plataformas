@@ -55,3 +55,4 @@
 {"cuando": "2026-09-03T21:53:25+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-04T00:01:10+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-04T00:09:30+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.02, "lenta": true}]}
+{"cuando": "2026-09-04T00:13:47+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 0.29, "lenta": false}]}
