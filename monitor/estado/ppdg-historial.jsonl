@@ -103,3 +103,4 @@
 {"cuando": "2026-09-06T20:49:51+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-06T22:52:33+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-07T00:56:40+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-07T01:05:03+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 4.59, "lenta": false}]}
