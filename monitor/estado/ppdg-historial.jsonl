@@ -125,3 +125,4 @@
 {"cuando": "2026-09-08T13:26:41+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Operaciones", "segundos": 6.12, "lenta": true}]}
 {"cuando": "2026-09-08T13:30:58+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Operaciones", "segundos": 0.22, "lenta": false}]}
 {"cuando": "2026-09-08T13:35:04+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-08T13:43:27+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 2.75, "lenta": false}]}
