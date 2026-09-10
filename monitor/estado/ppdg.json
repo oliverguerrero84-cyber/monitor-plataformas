@@ -6,10 +6,10 @@
     "desde": "2026-08-27T20:21:18+00:00"
   },
   "cursos": {
-    "ok": true,
-    "motivo": null,
-    "lenta": true,
-    "desde": "2026-08-27T20:21:18+00:00"
+    "ok": false,
+    "motivo": "HTTP 404",
+    "lenta": false,
+    "desde": "2026-09-10T03:45:00+00:00"
   },
   "login": {
     "ok": true,
