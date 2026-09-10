@@ -144,3 +144,4 @@
 {"cuando": "2026-09-09T21:29:06+00:00", "tipo": "prueba_viva", "avisado": true}
 {"cuando": "2026-09-09T22:30:26+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-10T00:33:11+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-10T03:20:01+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 4.33, "lenta": false}]}
