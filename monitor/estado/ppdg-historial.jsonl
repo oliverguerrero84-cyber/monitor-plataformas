@@ -159,3 +159,4 @@
 {"cuando": "2026-09-10T14:24:26+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-10T17:15:35+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 5.53, "lenta": true}]}
 {"cuando": "2026-09-10T17:19:55+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 0.41, "lenta": false}]}
+{"cuando": "2026-09-10T17:51:06+00:00", "tipo": "arranque"}
