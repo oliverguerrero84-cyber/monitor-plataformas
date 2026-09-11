@@ -8,7 +8,7 @@
   "cursos": {
     "ok": true,
     "motivo": null,
-    "lenta": true,
+    "lenta": false,
     "desde": "2026-09-10T03:49:16+00:00"
   },
   "login": {
