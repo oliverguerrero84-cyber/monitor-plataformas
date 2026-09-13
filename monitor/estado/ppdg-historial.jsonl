@@ -205,3 +205,4 @@
 {"cuando": "2026-09-13T00:16:18+00:00", "avisado": true, "caidas": [], "recuperadas": ["Catálogo de cursos"], "lentitud_grave": [], "fin_lentitud_grave": false, "detalle": "✅ PPDG — plataforma restablecida (18:16 hrs)\n\n• Catálogo de cursos ya responde bien. Estuvo fallando 8 minutos."}
 {"cuando": "2026-09-13T00:16:18+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 5.93, "lenta": true}]}
 {"cuando": "2026-09-13T01:24:08+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-13T01:53:15+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 3.53, "lenta": false}]}
