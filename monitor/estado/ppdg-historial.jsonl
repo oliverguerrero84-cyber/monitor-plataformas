@@ -238,3 +238,4 @@
 {"cuando": "2026-09-14T21:42:22+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 12.18, "lenta": true}]}
 {"cuando": "2026-09-14T21:46:59+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 0.38, "lenta": false}]}
 {"cuando": "2026-09-14T22:49:29+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 4.72, "lenta": false}]}
+{"cuando": "2026-09-14T22:53:38+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 6.05, "lenta": true}]}
