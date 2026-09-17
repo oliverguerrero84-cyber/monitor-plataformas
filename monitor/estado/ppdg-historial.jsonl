@@ -265,3 +265,4 @@
 {"cuando": "2026-09-17T02:37:59+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 3.5, "lenta": false}]}
 {"cuando": "2026-09-17T02:42:07+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 5.89, "lenta": true}]}
 {"cuando": "2026-09-17T05:18:39+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-17T08:21:32+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 4.53, "lenta": false}]}
