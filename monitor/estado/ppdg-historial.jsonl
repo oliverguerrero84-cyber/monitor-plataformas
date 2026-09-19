@@ -296,3 +296,4 @@
 {"cuando": "2026-09-18T22:34:06+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 0.31, "lenta": false}, {"pagina": "Perfil del alumno", "segundos": 0.21, "lenta": false}, {"pagina": "Carrito", "segundos": 0.37, "lenta": false}, {"pagina": "Curso Guardia Básico", "segundos": 0.33, "lenta": false}, {"pagina": "Curso Líder de Turno", "segundos": 0.19, "lenta": false}, {"pagina": "Curso Líder de Servicio", "segundos": 0.18, "lenta": false}, {"pagina": "Curso Supervisor", "segundos": 0.18, "lenta": false}, {"pagina": "Curso Líder de Operaciones", "segundos": 0.18, "lenta": false}]}
 {"cuando": "2026-09-18T22:38:25+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 0.29, "lenta": false}]}
 {"cuando": "2026-09-18T23:34:48+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-19T01:33:55+00:00", "tipo": "arranque"}
