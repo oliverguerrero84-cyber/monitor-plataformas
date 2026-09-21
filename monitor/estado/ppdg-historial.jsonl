@@ -321,3 +321,5 @@
 {"cuando": "2026-09-21T04:27:45+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 8.19, "lenta": true}]}
 {"cuando": "2026-09-21T07:10:51+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-21T14:31:09+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-21T16:02:59+00:00", "avisado": true, "caidas": ["Catálogo de cursos"], "recuperadas": [], "lentitud_grave": [], "fin_lentitud_grave": false, "detalle": "⚠️ PPDG — falla detectada en la plataforma (10:02 hrs)\n\n• Catálogo de cursos: HTTP 404\n  https://ppdg.com.mx/cursos/\n\nRevisión automática. Se avisa de nuevo cuando se restablezca."}
+{"cuando": "2026-09-21T16:02:59+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 0.29, "lenta": false}]}
