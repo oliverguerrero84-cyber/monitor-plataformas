@@ -340,3 +340,4 @@
 {"cuando": "2026-09-22T00:27:49+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 5.31, "lenta": true}]}
 {"cuando": "2026-09-22T00:31:59+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 0.29, "lenta": false}]}
 {"cuando": "2026-09-22T01:49:48+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-22T07:39:35+00:00", "tipo": "arranque"}
