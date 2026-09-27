@@ -369,3 +369,4 @@
 {"cuando": "2026-09-26T21:31:22+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-26T23:51:36+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-27T02:58:20+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 11.84, "lenta": true}, {"pagina": "Curso Líder de Turno", "segundos": 5.13, "lenta": true}]}
+{"cuando": "2026-09-27T03:02:49+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 0.46, "lenta": false}, {"pagina": "Curso Líder de Turno", "segundos": 0.31, "lenta": false}]}
