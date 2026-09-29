@@ -383,3 +383,4 @@
 {"cuando": "2026-09-29T08:59:49+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-29T15:43:14+00:00", "tipo": "arranque"}
 {"cuando": "2026-09-29T20:42:46+00:00", "tipo": "arranque"}
+{"cuando": "2026-09-29T20:50:55+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Turno", "segundos": 5.29, "lenta": true}]}
