@@ -395,3 +395,4 @@
 {"cuando": "2026-09-29T21:32:49+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 5.25, "lenta": true}]}
 {"cuando": "2026-09-29T21:36:59+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 0.35, "lenta": false}, {"pagina": "Perfil del alumno", "segundos": 5.42, "lenta": true}]}
 {"cuando": "2026-09-29T21:41:10+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 0.35, "lenta": false}, {"pagina": "Curso Líder de Operaciones", "segundos": 5.25, "lenta": true}]}
+{"cuando": "2026-09-29T21:45:21+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Supervisor", "segundos": 5.25, "lenta": true}, {"pagina": "Curso Líder de Operaciones", "segundos": 0.34, "lenta": false}]}
