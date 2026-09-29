@@ -419,3 +419,4 @@
 {"cuando": "2026-09-29T23:34:14+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 5.36, "lenta": true}, {"pagina": "Curso Líder de Turno", "segundos": 0.34, "lenta": false}]}
 {"cuando": "2026-09-29T23:38:24+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 5.26, "lenta": true}, {"pagina": "Catálogo de cursos", "segundos": 0.25, "lenta": false}]}
 {"cuando": "2026-09-29T23:42:40+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 5.36, "lenta": true}]}
+{"cuando": "2026-09-29T23:46:56+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 0.41, "lenta": false}, {"pagina": "Perfil del alumno", "segundos": 0.42, "lenta": false}]}
