@@ -415,3 +415,4 @@
 {"cuando": "2026-09-29T23:17:27+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 5.3, "lenta": true}, {"pagina": "Curso Supervisor", "segundos": 5.25, "lenta": true}]}
 {"cuando": "2026-09-29T23:21:42+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 0.33, "lenta": false}, {"pagina": "Curso Supervisor", "segundos": 0.26, "lenta": false}]}
 {"cuando": "2026-09-29T23:25:47+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.52, "lenta": true}]}
+{"cuando": "2026-09-29T23:29:59+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 0.37, "lenta": false}, {"pagina": "Curso Líder de Turno", "segundos": 5.29, "lenta": true}]}
