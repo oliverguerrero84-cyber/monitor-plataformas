@@ -387,3 +387,4 @@
 {"cuando": "2026-09-29T20:55:06+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Turno", "segundos": 0.39, "lenta": false}, {"pagina": "Curso Líder de Servicio", "segundos": 5.35, "lenta": true}]}
 {"cuando": "2026-09-29T20:59:16+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Servicio", "segundos": 0.25, "lenta": false}]}
 {"cuando": "2026-09-29T21:03:22+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Servicio", "segundos": 10.25, "lenta": true}]}
+{"cuando": "2026-09-29T21:07:42+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Turno", "segundos": 5.38, "lenta": true}, {"pagina": "Curso Líder de Servicio", "segundos": 0.24, "lenta": false}]}
