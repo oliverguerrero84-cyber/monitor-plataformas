@@ -437,3 +437,4 @@
 {"cuando": "2026-10-01T15:24:09+00:00", "tipo": "arranque"}
 {"cuando": "2026-10-01T20:29:32+00:00", "tipo": "arranque"}
 {"cuando": "2026-10-01T20:58:01+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 7.8, "lenta": true}]}
+{"cuando": "2026-10-01T21:02:14+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 0.31, "lenta": false}]}
