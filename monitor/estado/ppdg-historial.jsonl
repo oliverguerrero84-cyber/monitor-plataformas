@@ -514,3 +514,4 @@
 {"cuando": "2026-10-09T21:04:47+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.19, "lenta": true}]}
 {"cuando": "2026-10-09T21:08:58+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 2.25, "lenta": false}]}
 {"cuando": "2026-10-09T21:13:09+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 8.13, "lenta": true}]}
+{"cuando": "2026-10-09T21:17:23+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 0.57, "lenta": false}]}
