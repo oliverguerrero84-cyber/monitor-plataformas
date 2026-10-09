@@ -505,3 +505,4 @@
 {"cuando": "2026-10-09T20:22:08+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Turno", "segundos": 0.33, "lenta": false}]}
 {"cuando": "2026-10-09T20:26:18+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 7.35, "lenta": true}, {"pagina": "Curso Líder de Operaciones", "segundos": 12.54, "lenta": true}]}
 {"cuando": "2026-10-09T20:30:45+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 6.55, "lenta": true}, {"pagina": "Carrito", "segundos": 0.32, "lenta": false}, {"pagina": "Curso Líder de Operaciones", "segundos": 0.19, "lenta": false}]}
+{"cuando": "2026-10-09T20:34:57+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 3.62, "lenta": false}, {"pagina": "Curso Supervisor", "segundos": 5.03, "lenta": true}]}
