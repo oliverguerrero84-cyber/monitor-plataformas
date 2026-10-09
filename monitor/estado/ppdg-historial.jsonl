@@ -511,3 +511,4 @@
 {"cuando": "2026-10-09T20:47:57+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Guardia Básico", "segundos": 0.33, "lenta": false}, {"pagina": "Curso Líder de Operaciones", "segundos": 1.96, "lenta": false}]}
 {"cuando": "2026-10-09T20:52:13+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.65, "lenta": true}]}
 {"cuando": "2026-10-09T20:56:26+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 2.13, "lenta": false}]}
+{"cuando": "2026-10-09T21:04:47+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.19, "lenta": true}]}
