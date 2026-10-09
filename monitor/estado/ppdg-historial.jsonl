@@ -509,3 +509,4 @@
 {"cuando": "2026-10-09T20:39:18+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 7.61, "lenta": true}, {"pagina": "Curso Supervisor", "segundos": 2.84, "lenta": false}]}
 {"cuando": "2026-10-09T20:43:37+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 0.7, "lenta": false}, {"pagina": "Curso Guardia Básico", "segundos": 6.97, "lenta": true}, {"pagina": "Curso Líder de Operaciones", "segundos": 7.31, "lenta": true}]}
 {"cuando": "2026-10-09T20:47:57+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Guardia Básico", "segundos": 0.33, "lenta": false}, {"pagina": "Curso Líder de Operaciones", "segundos": 1.96, "lenta": false}]}
+{"cuando": "2026-10-09T20:52:13+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.65, "lenta": true}]}
