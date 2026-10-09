@@ -493,3 +493,4 @@
 {"cuando": "2026-10-09T18:49:54+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.54, "lenta": true}, {"pagina": "Curso Líder de Servicio", "segundos": 6.17, "lenta": true}]}
 {"cuando": "2026-10-09T18:54:11+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 0.98, "lenta": false}, {"pagina": "Curso Líder de Servicio", "segundos": 3.62, "lenta": false}]}
 {"cuando": "2026-10-09T18:58:21+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.68, "lenta": true}]}
+{"cuando": "2026-10-09T19:02:32+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 1.28, "lenta": false}]}
