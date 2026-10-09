@@ -490,3 +490,4 @@
 {"cuando": "2026-10-09T18:24:05+00:00", "tipo": "prueba_viva", "avisado": true}
 {"cuando": "2026-10-09T18:28:39+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 7.51, "lenta": true}, {"pagina": "Curso Líder de Turno", "segundos": 0.43, "lenta": false}]}
 {"cuando": "2026-10-09T18:41:31+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 1.76, "lenta": false}]}
+{"cuando": "2026-10-09T18:49:54+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 5.54, "lenta": true}, {"pagina": "Curso Líder de Servicio", "segundos": 6.17, "lenta": true}]}
