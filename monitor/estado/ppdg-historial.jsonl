@@ -521,3 +521,4 @@
 {"cuando": "2026-10-10T05:43:09+00:00", "tipo": "arranque"}
 {"cuando": "2026-10-10T12:23:45+00:00", "tipo": "arranque"}
 {"cuando": "2026-10-10T17:27:41+00:00", "tipo": "arranque"}
+{"cuando": "2026-10-10T18:24:29+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 5.33, "lenta": true}]}
