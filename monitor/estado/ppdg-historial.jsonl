@@ -612,3 +612,4 @@
 {"cuando": "2026-10-25T00:17:09+00:00", "tipo": "arranque"}
 {"cuando": "2026-10-25T05:14:50+00:00", "tipo": "arranque"}
 {"cuando": "2026-10-25T10:07:42+00:00", "tipo": "arranque"}
+{"cuando": "2026-10-25T13:34:32+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 5.37, "lenta": true}]}
