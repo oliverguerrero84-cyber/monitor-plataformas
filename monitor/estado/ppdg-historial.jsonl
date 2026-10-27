@@ -630,3 +630,4 @@
 {"cuando": "2026-10-27T13:22:54+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 6.37, "lenta": true}]}
 {"cuando": "2026-10-27T13:27:05+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 0.62, "lenta": false}]}
 {"cuando": "2026-10-27T16:30:53+00:00", "tipo": "arranque"}
+{"cuando": "2026-10-27T20:57:01+00:00", "tipo": "arranque"}
