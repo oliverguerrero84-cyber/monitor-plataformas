@@ -642,3 +642,4 @@
 {"cuando": "2026-10-28T23:43:17+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 3.63, "lenta": false}]}
 {"cuando": "2026-10-28T23:47:31+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 6.45, "lenta": true}, {"pagina": "Curso Líder de Operaciones", "segundos": 5.97, "lenta": true}]}
 {"cuando": "2026-10-28T23:51:54+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 2.38, "lenta": false}, {"pagina": "Curso Guardia Básico", "segundos": 5.29, "lenta": true}, {"pagina": "Curso Líder de Operaciones", "segundos": 0.29, "lenta": false}]}
+{"cuando": "2026-10-28T23:56:10+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 7.77, "lenta": true}, {"pagina": "Curso Guardia Básico", "segundos": 0.34, "lenta": false}, {"pagina": "Curso Líder de Turno", "segundos": 6.84, "lenta": true}]}
