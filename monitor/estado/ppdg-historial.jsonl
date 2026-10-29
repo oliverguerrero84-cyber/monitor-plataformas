@@ -648,3 +648,4 @@
 {"cuando": "2026-10-29T00:09:05+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 0.59, "lenta": false}, {"pagina": "Carrito", "segundos": 5.18, "lenta": true}]}
 {"cuando": "2026-10-29T00:13:21+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Carrito", "segundos": 4.56, "lenta": false}, {"pagina": "Curso Líder de Operaciones", "segundos": 5.02, "lenta": true}]}
 {"cuando": "2026-10-29T00:17:39+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 16.24, "lenta": true}, {"pagina": "Curso Líder de Servicio", "segundos": 6.3, "lenta": true}, {"pagina": "Curso Líder de Operaciones", "segundos": 0.66, "lenta": false}]}
+{"cuando": "2026-10-29T00:22:06+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Perfil del alumno", "segundos": 0.65, "lenta": false}, {"pagina": "Carrito", "segundos": 5.03, "lenta": true}, {"pagina": "Curso Líder de Servicio", "segundos": 0.68, "lenta": false}]}
