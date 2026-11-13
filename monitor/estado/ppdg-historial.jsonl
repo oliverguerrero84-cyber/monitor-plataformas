@@ -745,3 +745,4 @@
 {"cuando": "2026-11-13T18:30:35+00:00", "tipo": "prueba_viva", "avisado": true}
 {"cuando": "2026-11-13T22:08:16+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-13T22:52:55+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 5.28, "lenta": true}]}
+{"cuando": "2026-11-13T22:57:05+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Portada", "segundos": 0.35, "lenta": false}]}
