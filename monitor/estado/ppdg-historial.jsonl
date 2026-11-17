@@ -763,3 +763,4 @@
 {"cuando": "2026-11-17T10:37:38+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-17T11:14:09+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Servicio", "segundos": 7.12, "lenta": true}]}
 {"cuando": "2026-11-17T11:18:21+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Servicio", "segundos": 0.22, "lenta": false}]}
+{"cuando": "2026-11-17T19:46:11+00:00", "tipo": "arranque"}
