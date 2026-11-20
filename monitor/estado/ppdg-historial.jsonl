@@ -778,3 +778,4 @@
 {"cuando": "2026-11-20T14:07:48+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Supervisor", "segundos": 0.34, "lenta": false}]}
 {"cuando": "2026-11-20T17:58:54+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-20T18:31:27+00:00", "tipo": "prueba_viva", "avisado": true}
+{"cuando": "2026-11-20T21:01:46+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Operaciones", "segundos": 5.22, "lenta": true}]}
