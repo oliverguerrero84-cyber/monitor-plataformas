@@ -774,3 +774,4 @@
 {"cuando": "2026-11-19T19:10:36+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Guardia Básico", "segundos": 0.32, "lenta": false}]}
 {"cuando": "2026-11-20T01:13:20+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-20T09:07:36+00:00", "tipo": "arranque"}
+{"cuando": "2026-11-20T14:03:38+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Supervisor", "segundos": 5.34, "lenta": true}]}
