@@ -785,3 +785,4 @@
 {"cuando": "2026-11-21T00:21:22+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 0.28, "lenta": false}]}
 {"cuando": "2026-11-21T04:20:30+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Supervisor", "segundos": 7.5, "lenta": true}]}
 {"cuando": "2026-11-21T04:24:43+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Supervisor", "segundos": 0.28, "lenta": false}]}
+{"cuando": "2026-11-21T06:56:48+00:00", "tipo": "arranque"}
