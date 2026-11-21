@@ -782,3 +782,4 @@
 {"cuando": "2026-11-20T21:05:56+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Curso Líder de Operaciones", "segundos": 0.3, "lenta": false}]}
 {"cuando": "2026-11-20T23:56:52+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-21T00:17:11+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 6.34, "lenta": true}]}
+{"cuando": "2026-11-21T00:21:22+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Inicio de sesión", "segundos": 0.28, "lenta": false}]}
