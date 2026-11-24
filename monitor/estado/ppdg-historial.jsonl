@@ -798,3 +798,5 @@
 {"cuando": "2026-11-23T12:21:11+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-24T00:18:42+00:00", "tipo": "arranque"}
 {"cuando": "2026-11-24T10:22:49+00:00", "tipo": "arranque"}
+{"cuando": "2026-11-24T20:51:08+00:00", "tipo": "arranque"}
+{"cuando": "2026-11-24T20:51:08+00:00", "tipo": "lentitud", "cambios": [{"pagina": "Catálogo de cursos", "segundos": 6.98, "lenta": true}, {"pagina": "Inicio de sesión", "segundos": 6.53, "lenta": true}, {"pagina": "Perfil del alumno", "segundos": 6.54, "lenta": true}, {"pagina": "Carrito", "segundos": 6.74, "lenta": true}, {"pagina": "Curso Guardia Básico", "segundos": 6.49, "lenta": true}, {"pagina": "Curso Líder de Turno", "segundos": 6.58, "lenta": true}, {"pagina": "Curso Líder de Servicio", "segundos": 6.52, "lenta": true}, {"pagina": "Curso Supervisor", "segundos": 6.48, "lenta": true}]}
